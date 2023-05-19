@@ -5,16 +5,16 @@ const ConfigValidation = () => {
     const[data,setData]=useState([]);  
     
     useEffect(()=>{
-        axios.get('http://192.168.29.128/api/ConfigValidations')
+        axios.get('http://localhost:5241/api/FieldlevelConfiguration')
         .then(res=>setData(res.data))            
         .catch(error => {console.error(error)})
 
     },[]);       
 
     const deletvalidatios=(fileName)=>{
-        axios.delete(`http://192.168.29.128/api/ConfigValidations/${fileName}`)
+        axios.delete(`http://localhost:5241/api/FieldlevelConfiguration/${fileName}`)
         .then(responce=>{
-            setData(data.filter(item=>item.fileName !==fileName))
+            setData(data.filter(item=>item.fileName !==fileName)) 
         })
         .catch(error => console.log(error));
     }
@@ -22,8 +22,8 @@ const ConfigValidation = () => {
   return (
     <div className='container form-control'>       
         <div className='col'>
-        <h3><strong><center>Field_Level_Configuration</center></strong></h3>
-            <table className='  table table-bordered ' >
+        
+            <table className='table table-bordered table-striped' >
                 <thead>
                     <tr className='   bg-warning  '>
                         <th className='p-2'>BatchId</th>   
@@ -35,11 +35,11 @@ const ConfigValidation = () => {
                         <th className='p-2'>Default_Validation</th>   
                     </tr>
                 </thead>
-                       
+                <tbody className='bordered table-striped'>
                 {
                     data.map((item,id)=>{
                         return(
-                            <tr key={id}>
+                            <tr key={id} >
                                 <td>{item.batchId}</td>
                                 <td>{item.field}</td>
                                 <td>{item.width}</td>
@@ -51,7 +51,10 @@ const ConfigValidation = () => {
                             </tr>
                         )
                     })
-                }                        
+                }   
+                
+                </tbody>       
+                                     
             </table>
         </div>                       
     </div>

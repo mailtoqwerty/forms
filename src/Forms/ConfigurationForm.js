@@ -38,8 +38,9 @@ const ConfigurationForm = () => {
     }
  
   return ( 
-    <div className='row m-5   '>      
-        <div className="col" >
+    <div className='row m-2   '>      
+    <center><h1>Transformation Configuration</h1></center>
+        <div className="col" >            
             <form className='formtransparent form-control' onSubmit={submithandler}>       
                 <div className='row mt-2'>                    
                     <div className='mt-2'>
@@ -68,7 +69,7 @@ const ConfigurationForm = () => {
                     </div>
                 </div>
                 
-                <div className='row m-4 justify-content-center'>
+                <div className='row m-5 justify-content-center'>
                     <div className='  '>
                         <button type='submit'  className='btn btn-warning form-control'>Submit</button>
                     </div>

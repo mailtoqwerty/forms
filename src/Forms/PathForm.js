@@ -21,6 +21,7 @@ const PathForm = () => {
 
   return (
     <div className='container row m-5'>
+        <h3><center>VariableConfiguration</center></h3>
         <div className='col'>
             <form className='form-control' onSubmit={handelSubmit}>
                 <div className='m-2'>

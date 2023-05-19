@@ -26,19 +26,20 @@ const TransfConfiguration = () => {
         <div className='col'> 
             <table className='table table-bordered table-striped' >
                 <thead> 
-                    <tr className='bg-warning   bg-warning '>
+                    <tr className='bg-warning '>
                         <th className='p-2'>FileName</th>   
                         <th className='p-2'>FieldName</th>                            
                         <th className='p-2'>Source</th>  
                         <th className='p-2'>Destination</th>    
                         <th className='p-2'>Derivation_Function</th>                              
                         <th className='p-2'>Transf_Type</th>                          
-                    </tr>                   
-                
+                    </tr>              
+                </thead> 
+                <tbody>
                 {
                     data.map((item,id)=>{
                         return(
-                            <tr key={id}>
+                            <tr key={id} className='table table-bordered table-striped '>
                                 <td>{item.fileName}</td>
                                 <td>{item.fieldName}</td>
                                 <td>{item.source}</td>
@@ -50,7 +51,7 @@ const TransfConfiguration = () => {
                         )
                     })
                 }
-                </thead>                 
+                </tbody>                
             </table>
         </div>                 
     </div>

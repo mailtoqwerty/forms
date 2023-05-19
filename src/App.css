@@ -45,9 +45,9 @@
 }
 
 .background  { 
-  background-image: url("Export.jpeg ") ;
+  /* background-image: url("Export.jpeg ") ; */
   background-repeat: no-repeat;
-  background-color: hsl(0, 45%, 94%);
+  background-color: hsl(0, 0%, 100%);
   background-size: cover;
   background-position:0%;
   position: absolute;
@@ -71,7 +71,7 @@
   left:15px;
   transform: translateY(-50%);
   font-size: 1em;
-  color: rgb(233, 20, 20);
+  color: #514b4b;
   font-weight: 500;
   pointer-events: none;
 }

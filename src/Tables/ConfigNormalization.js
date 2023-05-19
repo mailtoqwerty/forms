@@ -1,6 +1,25 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
+import axios from 'axios';
 
 const ConfigNormalization = () => {
+    const [data,setData]=useState([]);
+    
+    useEffect(() => {
+  
+        axios.get('http://localhost:5241/api/NormalizationConfiguration')
+            .then(response => {setData(response.data)})
+            .catch(error => {console.error(error)})
+          
+        }, []);
+      
+        const handleDelete = (fileName) => {
+          axios.delete(`http://localhost:5241/api/NormalizationConfiguration/${fileName}`)
+            .then(response => {
+              setData( data.filter(item => item.fileName !== fileName));
+            })
+            .catch(error => console.log(error));
+        };
+
   return (
     <div className='container mt-5'>
         <div className='form-contral'>
@@ -8,23 +27,23 @@ const ConfigNormalization = () => {
             <table className=' table table-bordered' >
                <thead>
                <tr className='   bg-warning  text-light'>
-                    <th>FileName</th>
+                    <th>BatchId</th>
                     <th>FieldName</th>
                     <th>TableName</th>
                     <th>ColumnName</th>
                 </tr>
-                {/* {
+                {
                     data.map((item,id)=>{
                         return(
-                            <tr>
-                                <td>{item.fileName}</td>
+                            <tr key={id}>
+                                <td>{item.batchId}</td>
                                 <td>{item.fieldName}</td>
                                 <td>{item.tableName}</td>
                                 <ttd>{item.columnName}</ttd>
                             </tr>
                         )
                     })
-                } */}
+                }
                </thead>
             </table>
         </div>        
